@@ -4,8 +4,8 @@ import 'package:zeker_app/config/routes/app_routes.dart';
 import 'package:zeker_app/features/home/presentation/widgets/surah_list_view_item.dart';
 import 'package:quran/quran.dart' as quran;
 
-class SurahListView extends StatelessWidget {
-  const SurahListView({
+class CustomQuranSliverList extends StatelessWidget {
+  const CustomQuranSliverList({
     super.key,
   });
 

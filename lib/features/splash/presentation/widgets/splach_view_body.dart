@@ -1,4 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:zeker_app/config/routes/app_routes.dart';
@@ -25,10 +24,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       Duration(seconds: 3),
       () {
         GoRouter.of(context).pushReplacement(AppRoutes.homeView);
-        // Navigator.pushReplacementNamed(
-        //   context,
-        //   AppRoutes.homeView,
-        // );
+      
       },
     );
   }
@@ -49,22 +45,22 @@ class _SplashViewBodyState extends State<SplashViewBody> {
             style: StyleManger.textStyleBold30,
           ),
         ),
-        SizedBox(
-          height: 40,
-        ),
-        Align(
-          child: AnimatedTextKit(
-            pause: Duration(seconds: 3),
-            totalRepeatCount: 1,
-            animatedTexts: [
-              TypewriterAnimatedText(
-                AppStrings.readQuranEasy,
-                speed: const Duration(milliseconds: 100),
-                textStyle: StyleManger.textStyleBold24,
-              ),
-            ],
-          ),
-        ),
+        // SizedBox(
+        //   height: 40,
+        // ),
+        // Align(
+        //   child: AnimatedTextKit(
+        //     pause: Duration(seconds: 3),
+        //     totalRepeatCount: 1,
+        //     animatedTexts: [
+        //       TypewriterAnimatedText(
+        //         AppStrings.readQuranEasy,
+        //         speed: const Duration(milliseconds: 100),
+        //         textStyle: StyleManger.textStyleBold24,
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ],
     );
   }

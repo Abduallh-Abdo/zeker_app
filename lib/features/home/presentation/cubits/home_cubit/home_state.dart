@@ -17,30 +17,33 @@ class HomeFailure extends HomeState {
   const HomeFailure({required this.errorMessage});
 }
 
+//* Quran
+class HomeQuranSuccess extends HomeState {}
+
 //* Books
 class HomeBooksSuccess extends HomeState {
-  final BooksModel booksModel;
+  final BooksModel books;
 
-  const HomeBooksSuccess({required this.booksModel});
+  const HomeBooksSuccess({required this.books});
 }
 
 //* Fatwa
 class HomeFatwaSuccess extends HomeState {
-  final FatwaModel fatwaModel;
+  final FatwaModel fatwa;
 
-  const HomeFatwaSuccess({required this.fatwaModel});
+  const HomeFatwaSuccess({required this.fatwa});
 }
 
 //* khotab
 class HomeKhotabSuccess extends HomeState {
-  final KhotabModel khotabModel;
+  final KhotabModel khotab;
 
-  const HomeKhotabSuccess({required this.khotabModel});
+  const HomeKhotabSuccess({required this.khotab});
 }
 
 //* Videos
 class HomeVidoesSuccess extends HomeState {
-  final VideosModel videoesModel;
+  final VideosModel videoes;
 
-  const HomeVidoesSuccess({required this.videoesModel});
+  const HomeVidoesSuccess({required this.videoes});
 }

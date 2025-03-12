@@ -13,43 +13,85 @@ part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this.homeRepo) : super(HomeInitial());
-  List<String> categories = ["سور القرآن", "كتب", "خطب", "فتوه", "فيديو"];
-  String selectedCategory = "سور القرآن";
+
   final HomeRepo homeRepo;
 
+  List<String> categories = ["سور القرآن", "كتب", "خطب", "فتوه", "فيديو"];
+  String selectedCategory = "سور القرآن";
+
+  BooksModel? _booksData;
+  KhotabModel? _khotabData;
+  FatwaModel? _fatwaData;
+  VideosModel? _videosData;
+  bool _quranLoaded = false;
+
   void selectCategory({required String category}) async {
+    if (selectedCategory == category && state is! HomeFailure) {
+      // If the same category is selected again and it's not in a failure state, do nothing.
+      return;
+    }
+
     selectedCategory = category;
     emit(HomeLodaing());
 
     if (category == "سور القرآن") {
-      log(quran.getPageData(1).toString());
+      if (!_quranLoaded) {
+        log(quran.getPageData(1).toString());
+        _quranLoaded = true;
+      }
+      emit(HomeQuranSuccess());
     } else if (category == "كتب") {
-      // Call Books API
-      final response = await homeRepo.fetchBooksData();
-      response.fold(
+      if (_booksData != null) {
+        emit(HomeBooksSuccess(books: _booksData!));
+      } else {
+        final response = await homeRepo.fetchBooksData();
+        response.fold(
           (failure) => emit(HomeFailure(errorMessage: failure.errorMessage)),
-          (books) => emit(HomeBooksSuccess(booksModel: books)));
+          (books) {
+            _booksData = books;
+            emit(HomeBooksSuccess(books: books));
+          },
+        );
+      }
     } else if (category == "خطب") {
-      // Call Khotab API
-      final response = await homeRepo.fetchKhotabsData();
-      response.fold(
-        (failure) => emit(HomeFailure(errorMessage: failure.errorMessage)),
-        (khotab) => emit(HomeKhotabSuccess(khotabModel: khotab)),
-      );
+      if (_khotabData != null) {
+        emit(HomeKhotabSuccess(khotab: _khotabData!));
+      } else {
+        final response = await homeRepo.fetchKhotabsData();
+        response.fold(
+          (failure) => emit(HomeFailure(errorMessage: failure.errorMessage)),
+          (khotab) {
+            _khotabData = khotab;
+            emit(HomeKhotabSuccess(khotab: khotab));
+          },
+        );
+      }
     } else if (category == "فتوه") {
-      // Call Fatwa API
-      final response = await homeRepo.fetchFatwasData();
-      response.fold(
-        (failure) => emit(HomeFailure(errorMessage: failure.errorMessage)),
-        (fatwa) => emit(HomeFatwaSuccess(fatwaModel: fatwa)),
-      );
+      if (_fatwaData != null) {
+        emit(HomeFatwaSuccess(fatwa: _fatwaData!));
+      } else {
+        final response = await homeRepo.fetchFatwasData();
+        response.fold(
+          (failure) => emit(HomeFailure(errorMessage: failure.errorMessage)),
+          (fatwa) {
+            _fatwaData = fatwa;
+            emit(HomeFatwaSuccess(fatwa: fatwa));
+          },
+        );
+      }
     } else if (category == "فيديو") {
-      // Call Videos API
-      final response = await homeRepo.fetchVideosData();
-      response.fold(
-        (failure) => emit(HomeFailure(errorMessage: failure.errorMessage)),
-        (videos) => emit(HomeVidoesSuccess(videoesModel: videos)),
-      );
+      if (_videosData != null) {
+        emit(HomeVidoesSuccess(videoes: _videosData!));
+      } else {
+        final response = await homeRepo.fetchVideosData();
+        response.fold(
+          (failure) => emit(HomeFailure(errorMessage: failure.errorMessage)),
+          (videos) {
+            _videosData = videos;
+            emit(HomeVidoesSuccess(videoes: videos));
+          },
+        );
+      }
     }
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:zeker_app/core/utils/style_manger.dart';
 import 'package:zeker_app/features/home/presentation/widgets/category_list_view.dart';
 import 'package:zeker_app/features/home/presentation/widgets/home_time_section.dart';
-import 'package:zeker_app/features/home/presentation/widgets/surah_list_view.dart';
+import 'package:zeker_app/features/home/presentation/widgets/data_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -27,7 +27,7 @@ class HomeViewBody extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
-                'Catagorie',
+                'Category',
                 style: StyleManger.textStyleBold16,
               ),
             ),
@@ -42,8 +42,8 @@ class HomeViewBody extends StatelessWidget {
           const SliverToBoxAdapter(
             child: SizedBox(height: 21),
           ),
-          //* Surahs List View
-          SurahListView(),
+          //* Data List View
+          DataListView(),
         ],
       ),
     );

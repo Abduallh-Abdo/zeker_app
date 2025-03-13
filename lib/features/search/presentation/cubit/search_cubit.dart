@@ -47,18 +47,19 @@ class SearchCubit extends Cubit<SearchState> {
     );
   }
 
-  void playAudio({required int verseNumber}) {
-    if (isPlaying) {
-      CustomAudioPlayer.stop();
-      isPlaying = false;
-    } else {
-      CustomAudioPlayer.play(
-        url: quran.getAudioURLByVerseNumber(verseNumber),
-      );
-      isPlaying = true;
+ void playAudio({required int surahNumber, required int verseNumber}) {
+    if (state is SearchLoaded) {
+      final currentState = state as SearchLoaded;
+      if (currentState.isPlaying) {
+        CustomAudioPlayer.stop();
+        emit(currentState.copyWith(isPlaying: false));
+      } else {
+        CustomAudioPlayer.play(
+          url: quran.getAudioURLByVerse(surahNumber, verseNumber),
+        );
+        emit(currentState.copyWith(isPlaying: true));
+      }
     }
-    emit(SearchPlayAudio());
   }
-
 
 }

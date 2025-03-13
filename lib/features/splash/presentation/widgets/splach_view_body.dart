@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:zeker_app/config/routes/app_routes.dart';
+import 'package:zeker_app/core/utils/app_colors.dart';
 import 'package:zeker_app/core/utils/app_strings.dart';
 import 'package:zeker_app/core/utils/assets_manager.dart';
 import 'package:zeker_app/core/utils/style_manger.dart';
@@ -24,7 +25,6 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       Duration(seconds: 3),
       () {
         GoRouter.of(context).pushReplacement(AppRoutes.homeView);
-      
       },
     );
   }
@@ -41,8 +41,10 @@ class _SplashViewBodyState extends State<SplashViewBody> {
         ),
         Center(
           child: Text(
-            AppStrings.myQuran,
-            style: StyleManger.textStyleBold30,
+            AppStrings.zeker,
+            style: StyleManger.textStyleBold36.copyWith(
+              color: AppColors.primaryColor,
+            ),
           ),
         ),
         // SizedBox(

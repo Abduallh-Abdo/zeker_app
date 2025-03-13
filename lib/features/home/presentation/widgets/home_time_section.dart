@@ -66,7 +66,7 @@ class _HomeTimeSectionState extends State<HomeTimeSection> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          AppStrings.myQuran,
+                          AppStrings.zeker,
                           style: StyleManger.textStyleBold30,
                         ),
                         Text(

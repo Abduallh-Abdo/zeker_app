@@ -8,3 +8,17 @@ abstract class RadioState extends Equatable {
 }
 
 class RadioInitial extends RadioState {}
+
+class RadioLoading extends RadioState {}
+
+class RadioSuccess extends RadioState {
+  final RadioModel radio;
+
+  const RadioSuccess({required this.radio});
+}
+
+class RadioFailure extends RadioState {
+  final String errorMessage;
+
+  const RadioFailure({required this.errorMessage});
+}

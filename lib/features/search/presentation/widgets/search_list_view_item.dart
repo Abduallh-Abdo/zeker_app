@@ -7,6 +7,7 @@ import 'package:zeker_app/core/utils/app_colors.dart';
 import 'package:zeker_app/core/utils/media_query_values.dart';
 import 'package:quran/quran.dart' as quran;
 import 'package:zeker_app/features/search/presentation/cubit/search_cubit.dart';
+
 class SearchListViewItem extends StatelessWidget {
   const SearchListViewItem({
     super.key,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zeker_app/core/models/category_model.dart';
 import 'package:zeker_app/features/home/presentation/cubits/home_cubit/home_cubit.dart';
 import 'package:zeker_app/features/home/presentation/widgets/category_list_view_body.dart';
 
@@ -18,7 +17,7 @@ class CategoryListView extends StatelessWidget {
           height: 50,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
-            itemCount: categoryList.length,
+            itemCount: cubit.categories.length,
             separatorBuilder: (context, index) => const SizedBox(width: 12),
             itemBuilder: (context, index) => CategoryListViewBody(
               category: cubit.categories[index],

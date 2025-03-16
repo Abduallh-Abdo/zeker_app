@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zeker_app/features/search/presentation/cubit/search_cubit.dart';
 import 'package:zeker_app/features/search/presentation/widgets/search_list_view_item.dart';
+
 class SearchListView extends StatelessWidget {
   const SearchListView({super.key});
 

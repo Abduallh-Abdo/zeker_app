@@ -47,7 +47,7 @@ class SearchCubit extends Cubit<SearchState> {
     );
   }
 
- void playAudio({required int surahNumber, required int verseNumber}) {
+  void playAudio({required int surahNumber, required int verseNumber}) {
     if (state is SearchLoaded) {
       final currentState = state as SearchLoaded;
       if (currentState.isPlaying) {
@@ -61,5 +61,4 @@ class SearchCubit extends Cubit<SearchState> {
       }
     }
   }
-
 }

@@ -12,7 +12,6 @@ class SearchInitial extends SearchState {}
 
 class SearchLodaing extends SearchState {}
 
-
 class SearchLoaded extends SearchState {
   final SearchModel searchModel;
   final bool isPlaying;

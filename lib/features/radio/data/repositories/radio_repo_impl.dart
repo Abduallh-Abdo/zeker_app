@@ -17,8 +17,7 @@ class RadioRepoImpl implements RadioRepo {
   @override
   Future<Either<Failure, RadioModel>> fetchRadioData() async {
     try {
-      var data = await apiService.get(
-          baseUrl: 'https://mp3quran.net/api/v3/',
+      var data = await apiService.getRadio(
           endPoint: 'radios?language=ar');
       if (data.isNotEmpty) {
         RadioModel booksModel = RadioModel.fromJson(data);

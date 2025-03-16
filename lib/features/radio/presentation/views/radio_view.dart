@@ -7,17 +7,18 @@ class RadioView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          'راديو القرآن الكريم',
-          style: GoogleFonts.amiri(
-            fontSize: 26,
-          ),
+    final appBar = AppBar(
+      centerTitle: true,
+      title: Text(
+        'راديو القرآن الكريم',
+        style: GoogleFonts.amiri(
+          fontSize: 26,
         ),
-        automaticallyImplyLeading: false,
       ),
+      automaticallyImplyLeading: false,
+    );
+    return Scaffold(
+      appBar: appBar,
       body: RadioViewBody(),
     );
   }

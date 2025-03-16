@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:zeker_app/config/routes/app_routes.dart';
 import 'package:zeker_app/core/utils/app_colors.dart';
-import 'package:zeker_app/core/utils/functions/custom_url_lancher.dart';
 import 'package:zeker_app/core/utils/style_manger.dart';
 
 class RadioListViewItem extends StatelessWidget {
@@ -22,10 +23,19 @@ class RadioListViewItem extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: GestureDetector(
         onTap: () {
-          customUrlLancher(
-            context: context,
-            url: url,
+          GoRouter.of(context).push(
+            AppRoutes.radioScreen,
+            
+            extra: {
+              'title': title,
+              'url': url,
+            },
           );
+
+          // customUrlLancher(
+          //   context: context,
+          //   url: url,
+          // );
         },
         child: Container(
           padding: const EdgeInsets.all(10),

@@ -10,4 +10,7 @@ class CustomAudioPlayer {
   static Future<void> stop() async {
     await player.stop();
   }
+  static Future<void> pause() async {
+    await player.pause();
+  }
 }

@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,11 +7,11 @@ import 'package:zeker_app/core/utils/service_locator.dart';
 import 'package:zeker_app/features/home/data/repositories/home_repo_impl.dart';
 import 'package:zeker_app/features/home/presentation/cubits/fetch_salah_time_date_cubit/fetch_salah_time_date_cubit.dart';
 import 'package:zeker_app/features/home/presentation/cubits/home_cubit/home_cubit.dart';
-import 'package:quran/quran.dart' as quran;
+// import 'package:quran/quran.dart' as quran;
 
 void main() {
   setupServiceLocator();
-  log(quran.getPageData(5).toString());
+  // log(quran.getPageData(5).toString());
   runApp(const ZekerApp());
 }
 
